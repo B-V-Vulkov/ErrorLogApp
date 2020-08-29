@@ -1,4 +1,4 @@
 export class loginResponseModel {
-    username: string
+    status: boolean
     jwt: string;
 }
