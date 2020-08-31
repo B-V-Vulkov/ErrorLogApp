@@ -1,1 +1,37 @@
 <app-navigation-bar></app-navigation-bar>
+
+<div class="container content-wrapper">
+
+    <ul class="nav nav-tabs">
+
+        <li class="nav-item d-none d-sm-block d-md-block">
+            <a class="nav-link cursor-pointer" data-toggle="tab" [class.active]="selectedApplication.id === 0"
+                (click)="selectApplication(0)">{{ this.applications[0].name }}</a>
+        </li>
+
+        <li class="nav-item d-none d-sm-block d-md-block">
+            <a class="nav-link cursor-pointer" data-toggle="tab" [class.active]="selectedApplication.id === 1"
+                (click)="selectApplication(1)">{{ this.applications[1].name }}</a>
+        </li>
+
+        <li class="nav-item dropdown show d-block d-sm-none w-100">
+
+
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" (click)="showOrHideDropdown()">
+                {{ this.selectedApplication.name }}
+            </a>
+
+
+            <div class="dropdown-menu w-100" [ngClass]="dropdownVisibility ? 'show' : ''" x-placement="bottom-start">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+
+        </li>
+
+    </ul>
+
+</div>

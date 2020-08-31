@@ -12,4 +12,8 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  onclick(){
+    console.log("sdsdsd");
+  }
+
 }
