@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { cwd } from 'process';
+import { ErrorLogResponseModel } from 'src/app/core/services/models/error-log/error-log-response-model';
+import { __core_private_testing_placeholder__ } from '@angular/core/testing';
+
+
 
 @Component({
     selector: 'app-content',
@@ -11,6 +15,9 @@ import { cwd } from 'process';
 
 export class ContentComponent implements OnInit {
 
+
+    public errorLogs: Array<ErrorLogResponseModel> = new Array<ErrorLogResponseModel>();
+
     public applications: any;
     public selectedApplication: any;
 
@@ -18,7 +25,7 @@ export class ContentComponent implements OnInit {
 
     public tabType: number;
 
-    constructor() { }
+    constructor(   ) { }
 
     ngOnInit() {
         this.tabType = 1;
@@ -30,16 +37,50 @@ export class ContentComponent implements OnInit {
 
         this.selectedApplication = this.applications[0];
 
+        //const dsd: ErrorLogResponseModel = {date: new Date("2019-01-16"), userId: "29999943", schoolId: "12ds121212", exception: "1212"};
+
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Missing Token's Parameter" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invadsdsdsdsdlid User Contract" });
+        this.errorLogs.push({ date: new Date("2020-09-01T11:14:01.0405622+03:00"), response: 401, userId: "201061", schoolId: "2999983", exception: "Invalid Token" });
 
     }
 
     selectApplication(id: number) {
         this.selectedApplication = this.applications[id];
-
-        console.log(this.selectedApplication);
+        this.dropdownVisibility = false;
     }
 
     showOrHideDropdown() {
         this.dropdownVisibility = !this.dropdownVisibility;
     }
+
 }

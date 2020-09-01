@@ -23,15 +23,145 @@
 
 
             <div class="dropdown-menu w-100" [ngClass]="dropdownVisibility ? 'show' : ''" x-placement="bottom-start">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" (click)="selectApplication(0)">{{ this.applications[0].name }}</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" (click)="selectApplication(1)">{{ this.applications[1].name }}</a>
             </div>
 
         </li>
 
     </ul>
 
+
+    <form>
+
+        <div class="container d-flex p-0 mt-4">
+
+
+
+            <div class="form-group w-25 ml-0 mt-2 mb-2 mr-2">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group w-25 m-2">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group w-25 ml-2 mt-2 mb-2 mr-0">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+
+        </div>
+    </form>
+
+
+
+
+
+    <table class="table table-hover mt-2">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">
+                    <div>
+                        Date
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="d-none d-sm-block">
+                        Response
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="d-none d-sm-block">
+                        SchoolId
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="d-none d-sm-block">
+                        UserId
+                    </div>
+                </th>
+                <th scope="col">
+                    <div>
+                        Exception
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let errorLog of errorLogs; index as i" [ngClass]="i % 2 == 0 ? '' : 'table-light'"
+                class="cursor-pointer">
+                <td>
+                    <div>
+                        {{ errorLog.date | date:'dd/MM/yy hh:mm'}}
+                    </div>
+                </td>
+                <td>
+                    <div class="d-none d-sm-block">
+                        {{ errorLog.response }}
+                    </div>
+                </td>
+                <td>
+                    <div class="d-none d-sm-block">
+                        {{ errorLog.schoolId }}
+                    </div>
+                </td>
+                <td>
+                    <div class="d-none d-sm-block">
+                        {{ errorLog.userId }}
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        {{ errorLog.exception }}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
