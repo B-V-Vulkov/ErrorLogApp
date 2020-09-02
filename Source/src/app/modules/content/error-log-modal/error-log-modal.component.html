@@ -1,0 +1,148 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+        {{ errorLog.exception }}
+    </h4>
+    <button type="button" class="close" data-dismiss="alert" (click)="closeModal();">
+        &times;
+    </button>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                Status Code:
+            </label>
+            <span class="col-8">
+                {{ errorLog.statusCode }}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                UserId:
+            </label>
+            <span class="col-8">
+                {{ errorLog.userId }}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                SchoolId:
+            </label>
+            <span class="col-8">
+                {{ errorLog.schoolId }}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                Date:
+            </label>
+            <span class="col-8">
+                {{ errorLog.date | date:'dd/MM/yy hh:mm' }}
+            </span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                Controller Name:
+            </label>
+            <span class="col-8">
+                {{ errorLog.controllerName }}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                Action Name:
+            </label>
+            <span class="col-8">
+                {{ errorLog.actionName }}
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-4">
+                Request Url:
+            </label>
+            <span class="col-8">
+                {{ errorLog.requestUrl }}
+            </span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-12">
+                Inner Exception:
+            </label>
+            <span class="col-12">
+                {{ errorLog.innerException }}
+            </span>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-12 font-weight-bold">
+                Request Headers:
+            </label>
+            <div class="col-12" *ngFor="let requestHeader of errorLog.requestHeaders">
+                <label class="col-4">
+                    {{ requestHeader.name }}
+                </label>
+                <samp class="col-8">
+                    {{ requestHeader.value }}
+                </samp>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-12 font-weight-bold">
+                Request Peyload:
+            </label>
+            <div class="card bg-light p-2">
+                {{ errorLog.requestPeyload }}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+        <div class="col-12">
+            <label class="col-12 font-weight-bold">
+                Stack Trace:
+            </label>
+            <span class="card bg-light p-2">
+                {{ errorLog.stackTrace }}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+</div>
