@@ -6,11 +6,11 @@ export class ErrorLogResponseModel {
     public schoolId: String;
     public userId: String;
     public exception: String;
+    public innerException: String;
     public controllerName: String;
     public actionName: String;
     public requestUrl: String;
-    public innerException: String;
     public stackTrace: String;
     public requestPeyload: String
-    public requestHeaders: Array<RequestHeaderResponseModel> = new Array<RequestHeaderResponseModel>();
+    public requestHeaders: Array<RequestHeaderResponseModel>;
 }
