@@ -8,16 +8,18 @@ import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ErrorLogModalComponent } from './error-log-modal/error-log-modal.component';
 
 @NgModule({
-  declarations: [
-    ContentComponent,
-    ErrorLogModalComponent],
-  imports: [
-    CommonModule,
-    ContentRoutingModule,
-    LayoutsModule,
-    NgbModule,
-    NgbModalModule
-  ],
-  entryComponents: [ErrorLogModalComponent]
+    declarations: [
+        ContentComponent,
+        ErrorLogModalComponent],
+    imports: [
+        CommonModule,
+        ContentRoutingModule,
+        LayoutsModule,
+        NgbModule,
+        NgbModalModule
+    ],
+    entryComponents: [
+        ErrorLogModalComponent
+    ]
 })
 export class ContentModule { }

@@ -47,7 +47,11 @@ export class ContentComponent implements OnInit {
 
         this.selectedApplication = this.applications[0];
 
-        var data: any = { applicationId: 1 };
+
+        var time = new Date();
+        time.setDate(time.getDate() - 1);
+
+        var data: any = { applicationId: 1, timeDuration: time };
 
         this.errorLogService.getErrorLogList(data).subscribe(response => { this.errorLogs = response; });
 
