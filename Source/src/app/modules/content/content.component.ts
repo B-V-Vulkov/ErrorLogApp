@@ -47,11 +47,7 @@ export class ContentComponent implements OnInit {
 
         this.selectedApplication = this.applications[0];
 
-
-        var time = new Date();
-        time.setDate(time.getDate() - 1);
-
-        var data: any = { applicationId: 1, timeDuration: time };
+        var data: any = { applicationId: 1, timeDurationId: 2 };
 
         this.errorLogService.getErrorLogList(data).subscribe(response => { this.errorLogs = response; });
 
@@ -65,8 +61,4 @@ export class ContentComponent implements OnInit {
     showOrHideDropdown() {
         this.dropdownVisibility = !this.dropdownVisibility;
     }
-
-
-
-
 }

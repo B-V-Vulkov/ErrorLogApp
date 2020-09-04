@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         this.accountService.login(this.loginForm.value).subscribe(result => {
 
             if (result.status === true) {
+                localStorage.clear();
                 localStorage.setItem('jwt', result.jwt);
                 this.router.navigate(['']);
             }
