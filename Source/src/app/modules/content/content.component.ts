@@ -25,7 +25,7 @@ export class ContentComponent implements OnInit {
     public selectedTimeDuration: TimeDurationResponseModel;
 
     public selectedSchoolId: string;
-    public selectedUserId: String;
+    public selectedUserId: string;
 
     public errorLogs: Array<ErrorLogListingResponseModel> = new Array<ErrorLogListingResponseModel>();
     public requestHeaders: Array<RequestHeaderResponseModel> = new Array<RequestHeaderResponseModel>();
@@ -86,24 +86,14 @@ export class ContentComponent implements OnInit {
 
         this.errorLogService.getErrorLogList(data).subscribe(response => {
 
-            console.log(response);
-
             if (this.selectedSchoolId) {
                 response = response.filter(x => x.schoolId.toUpperCase().includes(this.selectedSchoolId.toUpperCase()));
             }
             if (this.selectedUserId) {
-                response = response.filter(x => x.userId === this.selectedUserId);
+                response = response.filter(x => x.userId.toUpperCase().includes(this.selectedUserId.toUpperCase()));
             }
 
-            console.log(this.selectedSchoolId);
-            console.log(this.selectedUserId);
-
-            console.log(response);
-            console.log(this.errorLogs);
-
             this.errorLogs = response;
-
-            console.log(this.errorLogs);
         });
     }
 
