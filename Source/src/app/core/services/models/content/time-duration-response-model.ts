@@ -1,4 +1,4 @@
 export class TimeDurationResponseModel {
-    public Id: Number;
-    public Name: String;
+    public id: number;
+    public name: string;
 }

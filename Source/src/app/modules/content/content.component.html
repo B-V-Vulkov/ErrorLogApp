@@ -1,74 +1,40 @@
 <app-navigation-bar></app-navigation-bar>
 
 <div class="container content-wrapper">
-
     <ul class="nav nav-tabs">
-
-        <li class="nav-item d-none d-sm-block d-md-block">
-            <a class="nav-link cursor-pointer" data-toggle="tab" [class.active]="selectedApplication.id === 0"
-                (click)="selectApplication(0)">{{ this.applications[0].name }}</a>
-        </li>
-
-        <li class="nav-item d-none d-sm-block d-md-block">
-            <a class="nav-link cursor-pointer" data-toggle="tab" [class.active]="selectedApplication.id === 1"
-                (click)="selectApplication(1)">{{ this.applications[1].name }}</a>
-        </li>
-
-        <li class="nav-item dropdown show d-block d-sm-none w-100">
-
-
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" (click)="showOrHideDropdown()">
-                {{ this.selectedApplication.name }}
+        <li class="nav-item" *ngFor="let application of applications; index as i">
+            <a class="nav-link cursor-pointer" data-toggle="tab" [class.active]="selectedApplication.id === i + 1"
+                (click)="selectApplication(this.applications[i])">{{ application.name }}
             </a>
-
-
-            <div class="dropdown-menu w-100" [ngClass]="dropdownVisibility ? 'show' : ''" x-placement="bottom-start">
-                <a class="dropdown-item" (click)="selectApplication(0)">{{ this.applications[0].name }}</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="selectApplication(1)">{{ this.applications[1].name }}</a>
-            </div>
-
         </li>
-
     </ul>
 
-
-
-    <form>
-
-        <div class="container d-flex p-0 mt-4">
-
-
-
- 
-
-            <div class="form-group w-25 m-2">
-                <label for="exampleSelect1">Example select</label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-            <div class="form-group w-25 ml-2 mt-2 mb-2 mr-0">
-                <label for="exampleSelect1">Example select</label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-
+    <div class="container d-flex p-0 mt-4">
+        <div class="form-group w-25">
+            <label>
+                Time Duration
+            </label>
+            <select class="form-control" #timeDurationId (change)="selectTimeDuration(timeDurationId.value)">
+                <option *ngFor="let timeDuration of timeDurations" value="{{timeDuration.id}}">
+                    {{ timeDuration.name }}
+                </option>
+            </select>
         </div>
-    </form>
-
-
+        <div class="form-group w-25 ml-4">
+            <label>
+                SchoolId
+            </label>
+            <input class="form-control" type="text" #schoolId placeholder="Enter SchoolId"
+                (keyup)="selectSchoolId(schoolId.value)">
+        </div>
+        <div class="form-group w-25 ml-4">
+            <label>
+                UserId
+            </label>
+            <input class="form-control" type="text" #userId placeholder="Enter UserId"
+                (change)="selectUserId(userId.value)">
+        </div>
+    </div>
 
     <table class="table table-hover mt-2">
         <thead>
