@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ErrorLogService } from 'src/app/core/services/error-log.service';
 import { ContentService } from 'src/app/core/services/content.service';
 import { ErrorLogListingResponseModel } from 'src/app/core/services/models/error-log/error-log-listing-response-model';
@@ -28,11 +28,6 @@ export class ContentComponent implements OnInit {
 
     public errorLogs: Array<ErrorLogListingResponseModel> = new Array<ErrorLogListingResponseModel>();
     public selectedErrorLog: ErrorLogResponseModel;
-
-
-    // public requestHeaders: Array<RequestHeaderResponseModel> = new Array<RequestHeaderResponseModel>();
-    // public dropdownVisibility: boolean;
-    // public tabType: number;
 
     constructor(
         private errorLogService: ErrorLogService,
@@ -104,7 +99,6 @@ export class ContentComponent implements OnInit {
             errorLogId: errorLogId
         };
 
-
         this.errorLogService.getErrorLog(data).subscribe(response => {
             this.selectedErrorLog = response;
 
@@ -112,6 +106,5 @@ export class ContentComponent implements OnInit {
             modalRef.componentInstance.errorLog = this.selectedErrorLog;
 
         });
-
     }
 }

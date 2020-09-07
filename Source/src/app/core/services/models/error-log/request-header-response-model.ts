@@ -1,4 +1,4 @@
 export class RequestHeaderResponseModel {
-    public name: String;
-    public value: String;
+    public name: string;
+    public value: string;
 }

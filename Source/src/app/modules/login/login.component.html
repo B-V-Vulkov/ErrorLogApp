@@ -4,44 +4,35 @@
             <div class="col-xs-0 col-sm-0 col-md-2 col-lg-4"></div>
             <div class="form col-xs-12 col-sm-12 col-md-6 col-lg-4 card">
                 <div class="mt-4 text-center">
-                    <h1>ErrorLog</h1>
+                    <h1>
+                        ErrorLog
+                    </h1>
                 </div>
                 <hr>
-                <h6 class="mb-2">Member Login</h6>
                 <form [formGroup]="loginForm" (submit)="onSubmitLoginForm()">
-
                     <div class="form-group">
-                        <span>Username</span>
+                        <span>
+                            Username
+                        </span>
                         <input class="form-control" type="text" placeholder="Username" formControlName="username"
                             minlength="5">
                     </div>
-
                     <div class="form-group">
-                        <div>Password</div>
+                        <div>
+                            Password
+                        </div>
                         <input class="form-control" type="password" placeholder="Password" formControlName="password"
                             minlength="5">
                     </div>
-
-                    <p class="text-danger" *ngIf="isInvalidLoginData">Invalid email or password.</p>
+                    <p class="text-danger" *ngIf="isInvalidLoginData">
+                        Invalid email or password.
+                    </p>
                     <hr class="mt-4 mb-4">
-                    <button type="submit" class="btn btn-primary w-100 mb-4"
-                        [disabled]="loginForm.invalid">Login</button>
-
-
-
-
+                    <button type="submit" class="btn btn-primary w-100 mb-4" [disabled]="loginForm.invalid">
+                        Login
+                    </button>
                 </form>
-
-
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
 </div>
