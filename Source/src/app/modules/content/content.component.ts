@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorLogResponseModel } from 'src/app/core/services/models/error-log/error-log-response-model';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ErrorLogModalComponent } from './error-log-modal/error-log-modal.component';
-import { RequestHeaderResponseModel } from 'src/app/core/services/models/error-log/request-header-response-model';
 import { ErrorLogService } from 'src/app/core/services/error-log.service';
 import { ContentService } from 'src/app/core/services/content.service';
 import { ErrorLogListingResponseModel } from 'src/app/core/services/models/error-log/error-log-listing-response-model';
 import { ApplicationResponseModel } from 'src/app/core/services/models/content/application-response-model';
 import { TimeDurationResponseModel } from 'src/app/core/services/models/content/time-duration-response-model';
+import { ErrorLogResponseModel } from 'src/app/core/services/models/error-log/error-log-response-model';
+import { ErrorLogModalComponent } from './error-log-modal/error-log-modal.component';
 
 @Component({
     selector: 'app-content',
@@ -28,9 +27,12 @@ export class ContentComponent implements OnInit {
     public selectedUserId: string;
 
     public errorLogs: Array<ErrorLogListingResponseModel> = new Array<ErrorLogListingResponseModel>();
-    public requestHeaders: Array<RequestHeaderResponseModel> = new Array<RequestHeaderResponseModel>();
-    public dropdownVisibility: boolean;
-    public tabType: number;
+    public selectedErrorLog: ErrorLogResponseModel;
+
+
+    // public requestHeaders: Array<RequestHeaderResponseModel> = new Array<RequestHeaderResponseModel>();
+    // public dropdownVisibility: boolean;
+    // public tabType: number;
 
     constructor(
         private errorLogService: ErrorLogService,
@@ -38,7 +40,6 @@ export class ContentComponent implements OnInit {
         private modalService: NgbModal) { }
 
     ngOnInit() {
-
         this.contentService.getApplications().subscribe(response => {
             this.applications = response;
 
@@ -87,18 +88,30 @@ export class ContentComponent implements OnInit {
         this.errorLogService.getErrorLogList(data).subscribe(response => {
 
             if (this.selectedSchoolId) {
-                response = response.filter(x => x.schoolId.toUpperCase().includes(this.selectedSchoolId.toUpperCase()));
+                response = response.filter(x => x.schoolId.toUpperCase().startsWith(this.selectedSchoolId.toUpperCase()));
             }
             if (this.selectedUserId) {
-                response = response.filter(x => x.userId.toUpperCase().includes(this.selectedUserId.toUpperCase()));
+                response = response.filter(x => x.userId.toUpperCase().startsWith(this.selectedUserId.toUpperCase()));
             }
 
             this.errorLogs = response;
         });
     }
 
-    test(errorLog: ErrorLogResponseModel) {
-        const modalRef = this.modalService.open(ErrorLogModalComponent, { size: 'lg' });
-        modalRef.componentInstance.errorLog = errorLog;
+    openErrorLogModal(errorLogId: string) {
+
+        const data: any = {
+            errorLogId: errorLogId
+        };
+
+
+        this.errorLogService.getErrorLog(data).subscribe(response => {
+            this.selectedErrorLog = response;
+
+            const modalRef = this.modalService.open(ErrorLogModalComponent, { size: 'lg' });
+            modalRef.componentInstance.errorLog = this.selectedErrorLog;
+
+        });
+
     }
 }

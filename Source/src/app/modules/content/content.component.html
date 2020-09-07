@@ -32,7 +32,7 @@
                 UserId
             </label>
             <input class="form-control" type="text" #userId placeholder="Enter UserId"
-                (change)="selectUserId(userId.value)">
+                (keyup)="selectUserId(userId.value)">
         </div>
     </div>
 
@@ -68,7 +68,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let errorLog of errorLogs; index as i" [ngClass]="i % 2 == 0 ? '' : 'table-light'"
-                (click)="test(errorLog)" class="cursor-pointer">
+                (click)="openErrorLogModal(errorLog.errorLogId)" class="cursor-pointer">
                 <td>
                     <div>
                         {{ errorLog.date | date:'dd/MM/yy hh:mm'}}

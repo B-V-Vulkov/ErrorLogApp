@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { loginResponseModel } from './models/authentication/login-response-model';
+
 import { environment } from 'src/environments/environment';
+import { loginResponseModel } from './models/authentication/login-response-model';
 
 const apiUrl: string = environment.apiUrl;
 const accountControler: string = environment.accountControler;
@@ -32,6 +33,4 @@ export class AuthenticationService {
         }
         return true;
     }
-
-
 }

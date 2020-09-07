@@ -1,7 +1,5 @@
-import { Guid } from "guid-typescript";
-
 export class ErrorLogListingResponseModel {
-    public errorLogId: String;
+    public errorLogId: string;
     public statusCode: number;
     public schoolId: string;
     public userId: string;

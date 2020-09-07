@@ -10,7 +10,7 @@
 <div class="modal-body">
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 Status Code:
             </label>
             <span class="col-8">
@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 UserId:
             </label>
             <span class="col-8">
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 SchoolId:
             </label>
             <span class="col-8">
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 Date:
             </label>
             <span class="col-8">
@@ -48,12 +48,10 @@
             </span>
         </div>
     </div>
-
     <hr>
-
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 Controller Name:
             </label>
             <span class="col-8">
@@ -63,7 +61,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 Action Name:
             </label>
             <span class="col-8">
@@ -71,10 +69,9 @@
             </span>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
-            <label class="col-4">
+            <label class="font-weight-bold col-4">
                 Request Url:
             </label>
             <span class="col-8">
@@ -82,44 +79,36 @@
             </span>
         </div>
     </div>
-
     <hr>
-
     <div class="row">
         <div class="col-12">
-            <label class="col-12">
+            <label class="col-4 font-weight-bold mb-0">
                 Inner Exception:
             </label>
-            <span class="col-12">
+            <span class="col-8 word-break-all">
                 {{ errorLog.innerException }}
             </span>
         </div>
     </div>
-
-
     <hr>
-
-
-
     <div class="row">
         <div class="col-12">
-            <label class="col-12 font-weight-bold">
+            <label class="col-12 font-weight-bold mb-0">
                 Request Headers:
             </label>
             <div class="col-12" *ngFor="let requestHeader of errorLog.requestHeaders">
-                <label class="col-4">
+                <label class="col-4 mb-0 mt-2">
                     {{ requestHeader.name }}
                 </label>
-                <samp class="col-8">
+                <samp class="col-8 word-break-all">
                     {{ requestHeader.value }}
                 </samp>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
-            <label class="col-12 font-weight-bold">
+            <label class="col-12 font-weight-bold mt-2">
                 Request Peyload:
             </label>
             <div class="card bg-light p-2">
@@ -127,10 +116,7 @@
             </div>
         </div>
     </div>
-
     <hr>
-
-
     <div class="row">
         <div class="col-12">
             <label class="col-12 font-weight-bold">
@@ -142,7 +128,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
 </div>

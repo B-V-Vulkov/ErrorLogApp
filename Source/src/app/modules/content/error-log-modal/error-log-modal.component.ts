@@ -4,7 +4,8 @@ import { ErrorLogResponseModel } from 'src/app/core/services/models/error-log/er
 
 @Component({
   selector: 'app-error-log-modal',
-  templateUrl: './error-log-modal.component.html'
+  templateUrl: './error-log-modal.component.html',
+  styleUrls: ['./error-log-modal.component.scss']
 })
 export class ErrorLogModalComponent implements OnInit {
 
